@@ -4,7 +4,7 @@ interface IconLogoProps extends React.ComponentPropsWithoutRef<'svg'> {
 	size?: number | string
 }
 
-const IconLogo = ({ size, style, ...others }: IconLogoProps) => {
+export const IconLogo = ({ size, style, ...others }: IconLogoProps) => {
 	return (
 		<svg
 			viewBox="0 0 583 146"
@@ -28,5 +28,3 @@ const IconLogo = ({ size, style, ...others }: IconLogoProps) => {
 		</svg>
 	)
 }
-
-export default IconLogo

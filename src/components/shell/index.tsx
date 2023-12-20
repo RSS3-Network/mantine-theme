@@ -2,7 +2,7 @@
 
 import { Anchor, AppShell, Burger, Group, Text } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
-import IconLogo from '@rss3/mantine-theme/icons/Logo'
+import { IconLogo } from '@rss3/mantine-theme/icons'
 import Link from 'next/link'
 import { ColorSchemeSwitch } from '../color-scheme-switch'
 import { Nav } from './nav'
@@ -58,12 +58,12 @@ export function Shell({ children }: ShellProps) {
 			<AppShell.Footer withBorder={false} px="md">
 				<Group justify="space-between" align="center" h="100%">
 					<Anchor
-						href="https://theme.rss3.dev"
+						href="https://mantine-theme.rss3.dev"
 						target="_blank"
 						c="dimmed"
 						fz="sm"
 					>
-						theme.rss3.dev
+						mantine-theme.rss3.dev
 					</Anchor>
 
 					<Text c="dimmed" fz="sm">

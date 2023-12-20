@@ -20,16 +20,23 @@
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
+	"files": ["dist"],
 	"scripts": {
-		"dev": "next dev",
 		"build:package": "tsup",
 		"build:site": "next build",
+		"dev": "next dev",
 		"format": "biome format . --write",
 		"lint": "biome check .",
 		"lint:fix": "biome check . --apply",
 		"prepublishOnly": "npm run build",
 		"release": "bumpp",
 		"typecheck": "tsc --noEmit"
+	},
+	"simple-git-hooks": {
+		"pre-commit": "npm run format && npm run lint:fix"
+	},
+	"dependencies": {
+		"@fastify/deepmerge": "^1.3.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.4.1",
@@ -67,11 +74,5 @@
 	"packageManager": "pnpm@8.12.1",
 	"engines": {
 		"node": ">=16.6.0"
-	},
-	"simple-git-hooks": {
-		"pre-commit": "npm run format && npm run lint:fix"
-	},
-	"dependencies": {
-		"@fastify/deepmerge": "^1.3.0"
 	}
 }

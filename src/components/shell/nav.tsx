@@ -17,6 +17,7 @@ const nav: NavItem[] = [
 			{ label: 'Styling Options', href: '/docs/guides/styling-options' },
 			{ label: 'Layouting', href: '/docs/guides/layouting' },
 			{ label: 'Fonts', href: '/docs/guides/fonts' },
+			{ label: 'Icons', href: '/docs/guides/icons' },
 		],
 	},
 ]
