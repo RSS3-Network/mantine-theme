@@ -1,0 +1,219 @@
+# Layouting
+
+We write layouts in UI everyday. What is the best way to do it?
+
+## Mantine Layout Components
+
+If possible, use Mantine layout components instead of writing your own. They are very handy and easy to use, also consistent and customizable.
+
+- [AppShell](https://mantine.dev/core/app-shell)
+- [AspectRatio](https://mantine.dev/core/aspect-ratio)
+- [Center](https://mantine.dev/core/center)
+- [Container](https://mantine.dev/core/container)
+- [Flex](https://mantine.dev/core/flex)
+- [Grid](https://mantine.dev/core/grid)
+- [Group](https://mantine.dev/core/group)
+- [Grid](https://mantine.dev/core/grid)
+- [SimpleGrid](https://mantine.dev/core/simple-grid)
+- [Space](https://mantine.dev/core/space)
+- [Stack](https://mantine.dev/core/stack)
+
+Example:
+
+```tsx
+import { Container, Group, SimpleGrid, Space, Stack } from '@mantine/core';
+
+function Layout() {
+  return (
+    <Container size="lg">
+      <Stack gap="lg">
+        <Group justify="space-between">
+          <div>Left</div>
+          <div>Right</div>
+        </Group>
+        <SimpleGrid cols={2} gap="lg">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+        </SimpleGrid>
+      </Stack>
+      <Space h="lg" />
+      <div>another content</div>
+    </Container>
+  );
+}
+```
+
+Result:
+
+import { Container, Group, SimpleGrid, Space, Stack } from '@mantine/core';
+
+<Container size="lg">
+  <Stack gap="lg">
+    <Group justify="space-between">
+      <div>Left</div>
+      <div>Right</div>
+    </Group>
+    <SimpleGrid cols={2} gap="lg">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </SimpleGrid>
+  </Stack>
+  <Space h="lg" />
+  <div>another content</div>
+</Container>
+
+
+## Tailwind CSS
+
+Tailwind CSS is also a good choice for layouting. But you need to be careful about the class names. It's easy to write a lot of classes and make the code hard to read (too many `div`s and long `className`s).
+
+Example:
+
+```tsx
+function Layout() {
+  return (
+    <div className="container mx-auto">
+      <div className="flex flex-col gap-lg">
+        <div className="flex justify-between">
+          <div>Left</div>
+          <div>Right</div>
+        </div>
+        <div className="grid grid-cols-2 gap-lg">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+        </div>
+      </div>
+      <div className="h-lg" />
+      <div>another content</div>
+    </div>
+  );
+}
+```
+
+Result:
+
+<div className="container mx-auto">
+  <div className="flex flex-col gap-lg">
+    <div className="flex justify-between">
+      <div>Left</div>
+      <div>Right</div>
+    </div>
+    <div className="grid grid-cols-2 gap-lg">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>
+  </div>
+  <div className="h-lg" />
+  <div>another content</div>
+</div>
+
+<br/><br/>
+
+However, it has a huge benefit: minimal bundle size! You don't need to import any layout components, just use the class names.
+
+This is the generated HTML of the above Mantine code for comparison:
+
+```tsx
+<div style="--container-size:var(--container-size-lg)" class="m-7485cace mantine-Container-root" data-size="lg">
+  <div style="--stack-gap:var(--mantine-spacing-lg);--stack-align:stretch;--stack-justify:flex-start" class="m-6d731127 mantine-Stack-root">
+    <div style="--group-gap:var(--mantine-spacing-md);--group-align:center;--group-justify:space-between;--group-wrap:wrap" class="m-4081bf90 mantine-Group-root">
+      <div>Left</div>
+      <div>Right</div>
+    </div>
+    <style data-mantine-styles="inline">.__m__-Rld9brrqmulrekq{--sg-spacing-x:var(--mantine-spacing-md);--sg-spacing-y:var(--mantine-spacing-md);--sg-cols:2;}</style>
+    <div class="m-2415a157 mantine-SimpleGrid-root __m__-Rld9brrqmulrekq" gap="lg">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+    </div>
+  </div>
+  <div style="height:var(--mantine-spacing-lg);min-height:var(--mantine-spacing-lg)" class=""></div>
+  <div>another content</div>
+</div>
+```
+
+## Which One to Choose?
+
+Simply put:
+  - if you care about scalability, easy-to-use and more familiar with Mantine, use Mantine.
+  - if you care about bundle size and more familiar with Tailwind, use Tailwind CSS;
+
+They are both good for layouting. They don't conflict with each other. You can also use both in the same project.
+
+## Tips
+
+Here are some tips to make your layout more readable and maintainable. But they are not required! You can still write in your own way.
+
+1. **Use `xs`, `sm`, `md`, `lg`, `xl` for layouting instead of `px` or `rem`.**
+
+    For example:
+
+    - `h="md"` instead of `h="16px"` or `h="1rem"`.
+    - `padding="lg"` instead of `padding="16px"` or `padding="1rem"`.
+    - `className="mt-lg"` instead of `className="mt-[16px]"` or `className="mt-[1rem]"`.
+    - `className="gap-md"` instead of `className="gap-[8px]"` or `className="gap-[0.5rem]"`.
+
+2. **Use `Space` component to add space between custom components instead of adding margin inside the component.**
+
+    For example:
+
+    ```tsx
+    import { Space } from '@mantine/core';
+
+    function Layout() {
+      return (
+        <div>
+          <AnotherComponent />
+          <Space h="lg" />
+          <AnotherComponent />
+          <Space h="lg" />
+          <AnotherComponent />
+        </div>
+      );
+    }
+
+    function AnotherComponent() {
+      return <div>another component</div>;
+    }
+    ```
+
+    instead of:
+
+    ```tsx
+    function Layout() {
+      return (
+        <div>
+          <AnotherComponent />
+          <AnotherComponent />
+          <AnotherComponent />
+        </div>
+      );
+    }
+
+    function AnotherComponent() {
+      return (
+        <div className="mt-lg">another component</div>
+      );
+    }
+    ```
+
+3. **Use `rem` and `em` instead of `px` for any size.**
+
+    Specifically:
+
+    - Use REMs for sizes and spacing.
+    - Use EMs for media queries.
+
+    See:
+
+    - [Why you shouldn't use px](https://engageinteractive.co.uk/blog/em-vs-rem-vs-px).
+    - [rem](https://mantine.dev/styles/rem/) in Mantine.

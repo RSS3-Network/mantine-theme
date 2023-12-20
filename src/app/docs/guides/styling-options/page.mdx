@@ -1,0 +1,390 @@
+# Styling Options
+
+Mantine recommends using [CSS Modules](https://mantine.dev/styles/css-modules/) to style components but you can also use any styling methods you want. Please refer to the mantine documentations [Styles Overview](https://mantine.dev/styles/styles-overview/).
+
+Here are some examples and tradeoffs of different styling methods.
+
+To recommend for our teams, **CSS Modules** and **Tailwind** are both the best options.
+
+## Before You Style
+
+The `@rss3/mantine-theme` package aims to provide a consistent theme for all RSS3 official websites. You may only want to change a few styles of the components. If you make significant changes, please consider whether the customized styles are suitable and reusable for all RSS3 official websites. If they are, please consider contributing to the `@rss3/mantine-theme` package.
+
+In most cases, you may only need to change the ["layouting"](./layouting) styles (e.g. `width`, `margin`, `padding`, `border`, `flex`, etc.).
+
+## CSS Modules ⭐︎⭐︎⭐︎
+
+Code:
+
+```tsx
+// Demo.tsx
+import { useState } from 'react';
+import { TextInput } from '@mantine/core';
+import classes from './Demo.module.css';
+
+function Demo() {
+  const [value, setValue] = useState('');
+  const [focused, setFocused] = useState(false);
+  const floating = focused || value.length > 0 || undefined;
+
+  return (
+    <TextInput
+      label="Floating label input"
+      labelProps={{ 'data-floating': floating }}
+      classNames={{
+        root: classes.root,
+        input: classes.input,
+        label: classes.label,
+      }}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      value={value}
+      onChange={(event) => setValue(event.currentTarget.value)}
+    />
+  );
+}
+```
+
+```css
+/* Demo.module.css */
+.root {
+  position: relative;
+  margin-top: rem(5px);
+}
+
+.input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom-width: rem(2px);
+  border-radius: 0;
+  padding-left: 0;
+  background-color: var(--mantine-color-body);
+}
+
+.label {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  top: rem(7px);
+  color: var(--mantine-color-placeholder);
+  font-weight: 400;
+  font-size: var(--mantine-font-size-sm);
+  transition: color 100ms ease, transform 100ms ease, font-size 100ms ease;
+
+  &[data-floating] {
+    transform: translateY(rem(-20px));
+    font-size: var(--mantine-font-size-xs);
+    color: var(--mantine-color-text);
+  }
+}
+```
+
+Result:
+
+import { CssModulesDemo } from './css-modules-demo';
+
+<CssModulesDemo />
+
+<br/><br/>
+
+## Tailwind ⭐︎⭐︎⭐︎
+
+The benefits of using Tailwind is that:
+
+1. You don't need to write another CSS file.
+2. You can use the same class names across the entire project(s). This makes it easier to remember and use.
+3. The performance is good as well.
+
+### Basic Usage
+
+Code:
+
+```tsx
+// Demo.tsx
+import { Button } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Button
+      variant="outline"
+      className="border-yellow-500 hover:border-yellow-600 text-yellow rounded-xl"
+    >
+      Button
+    </Button>
+  );
+}
+```
+
+Result:
+
+import { Button } from '@mantine/core';
+
+<Button
+  variant="outline"
+  className="border-yellow-600 hover:border-yellow-500 text-yellow rounded-xl"
+>Button</Button>
+
+<br /><br />
+
+If you followed the "Setup Tailwind" section in the [Getting Started](/docs/getting-started) page, you can use the Tailwind classes directly in the `className` prop.
+
+### Tailwind Theme vs. Mantine Theme
+
+Bonus point: the Tailwind theme are coordinated with the Mantine theme, which means the following codes are identical in real effect:
+
+```tsx
+// Demo.tsx - using Tailwind classes
+import { Button } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Button
+      className="bg-blue text-yellow rounded-xl"
+    >
+      Button
+    </Button>
+  );
+}
+```
+
+```tsx
+// Demo.tsx - using style props
+import { Button } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Button color="blue" c="yellow" radius="xl">
+      Button
+    </Button>
+  );
+}
+```
+
+<Button color="blue" c="yellow" radius="xl">Button</Button>
+
+<br/><br/>
+
+Note that in mantine, the primary shade is `6`, while in Tailwind, the primary shade is `600`. So the `color="yellow"` or `color="yellow.6"` prop is equivalent to `bg-yellow` or `bg-yellow-600` in Tailwind.
+
+For a complete example of the color `red`:
+
+- `color="red"` is equivalent to `bg-red` or `bg-red-600`
+- `color="red.0"` is equivalent to `bg-red-50`
+- `color="red.1"` is equivalent to `bg-red-100`
+- `color="red.2"` is equivalent to `bg-red-200`
+- `color="red.3"` is equivalent to `bg-red-300`
+- `color="red.4"` is equivalent to `bg-red-400`
+- `color="red.5"` is equivalent to `bg-red-500`
+- `color="red.6"` is equivalent to `bg-red-600`
+- `color="red.7"` is equivalent to `bg-red-700`
+- `color="red.8"` is equivalent to `bg-red-800`
+- `color="red.9"` is equivalent to `bg-red-900`
+
+### Use classNames Prop
+
+You can also exploit the `classNames` prop to use Tailwind classes for more accurate styling:
+
+```tsx
+import { TextInput } from '@mantine/core';
+
+function Demo() {
+  return (
+    <TextInput
+      classNames={{
+        root: 'mt-4 w-[200px]',
+        input: 'bg-red-500 text-white placeholder-yellow border-green border-5',
+        label: 'text-blue-500',
+      }}
+      label="Label"
+      placeholder="Type something…"
+    />
+  );
+}
+```
+
+import { TextInput } from '@mantine/core';
+
+<TextInput
+	classNames={{
+		root: 'mt-4 w-[200px]',
+		input: 'bg-red-500 text-white placeholder-yellow border-green border-5',
+    label: 'text-blue-500',
+	}}
+  label="Label"
+	placeholder="Type something…"
+/>
+
+<br/><br/>
+
+You can find the `classNames` styles API of each component in the "Styles API" section. For example, the [TextInput#styles-api](https://mantine.dev/core/text-input/#styles-api).
+
+## Style Props ⭐︎⭐︎
+
+One of the above examples using `color` and `radius` props (`color="blue" c="yellow" radius="xl"`) is using the [Style Props](https://mantine.dev/styles/style-props/) feature of Mantine. It is a very powerful feature that allows you to style components with props.
+
+The benefits:
+
+1. You don't need to write another CSS file.
+2. Very very easy to use.
+3. Type-safe.
+
+The tradeoffs:
+
+1. The performance is not as good as CSS Modules or Tailwind. Because the style props are converted to `style` attributes which increases the bundle size.
+2. It is not easy to override. For example, if you want to override the `color` prop, you need to use `!important` or other inline styles to override it.
+
+It is recommended to only use Style Props when you need to change a few (like 1-3) styles of a component.
+
+For another example:
+
+```tsx
+// Demo.tsx
+import { Box } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Box
+      w={{ base: 200, sm: 400, lg: 500 }}
+      py={{ base: 'xs', sm: 'md', lg: 'xl' }}
+      bg={{ base: 'blue.7', sm: 'red.7', lg: 'green.7' }}
+      c="#fff"
+      ta="center"
+      mx="auto"
+    >
+      Box with responsive style props
+    </Box>
+  );
+}
+```
+import { Box } from '@mantine/core';
+
+<Box
+  w={{ base: 200, sm: 400, lg: 500 }}
+  py={{ base: 'xs', sm: 'md', lg: 'xl' }}
+  bg={{ base: 'blue.7', sm: 'red.7', lg: 'green.7' }}
+  c="#fff"
+  ta="center"
+  mx="auto"
+>Box with responsive style props</Box>
+
+<br /><br />
+
+The identical code using Tailwind classes:
+
+```tsx
+// Demo.tsx
+import { Box } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Box
+      className="w-200 sm:w-400 lg:w-500 py-xs sm:py-md lg:py-xl bg-blue-700 sm:bg-red-700 lg:bg-green-700 text-white text-center mx-auto"
+    >
+      Box with responsive style props
+    </Box>
+  );
+}
+```
+
+If you could use Tailwind classes, it is recommended to use Tailwind classes instead of Style Props.
+
+## Inline Styles ⭐︎
+
+The last option is to use inline styles. It is not recommended to use inline styles because:
+
+1. It is not easy to maintain.
+2. It is not easy to read.
+3. It is not easy to override.
+
+But if you just want to make a quick demo or make life easier, you can use inline styles anyway. 😊
+
+Example:
+
+```tsx
+// Demo.tsx
+import { Button } from '@mantine/core';
+
+function Demo() {
+  return (
+    <Button
+      variant="outline"
+      style={{
+        borderColor: 'yellow',
+        borderWidth: 2,
+        color: 'yellow',
+        borderRadius: 8,
+      }}
+    >
+      Button
+    </Button>
+  );
+}
+```
+
+Result:
+
+<Button
+  variant="outline"
+  style={{
+    borderColor: 'yellow',
+    borderWidth: 2,
+    color: 'yellow',
+    borderRadius: 8,
+  }}
+>Button</Button>
+
+<br/><br/>
+
+There is also a `styles` prop that just like the `classNames` prop:
+
+```tsx
+// Demo.tsx
+import { TextInput } from '@mantine/core';
+
+function Demo() {
+  return (
+    <TextInput
+      styles={{
+        root: {
+          marginTop: 4,
+          width: 200,
+        },
+        input: {
+          backgroundColor: 'red',
+          color: 'white',
+          placeholderColor: 'yellow',
+          border: '5px solid green',
+        },
+        label: {
+          color: 'blue',
+        },
+      }}
+      label="Label"
+      placeholder="Type something…"
+    />
+  );
+}
+```
+
+Result:
+
+<TextInput
+  styles={{
+    root: {
+      marginTop: 4,
+      width: 200,
+    },
+    input: {
+      backgroundColor: 'red',
+      color: 'white',
+      placeholderColor: 'yellow',
+      border: '5px solid green',
+    },
+    label: {
+      color: 'blue',
+    },
+  }}
+  label="Label"
+  placeholder="Type something…"
+/>

@@ -1,0 +1,42 @@
+# Fonts
+
+We use two fonts for RSS3 theme:
+
+- [Poppins](https://fonts.google.com/specimen/Poppins) for nomarl text.
+- [OCR B Std Regular](https://www.fonts.com/font/monotype/ocr-b) for monospace text.
+
+## Examples
+
+```tsx
+import { Text } from '@mantine/core';
+
+<Text>Default text</Text>
+<Text fw="bold">Bold text</Text>
+<Text fw="light">Light text</Text>
+<Text ff="monospace">Monospace text</Text>
+```
+
+import { Text } from '@mantine/core';
+
+<Text>Default text</Text>
+<Text fw="bold">Bold text</Text>
+<Text fw="light">Light text</Text>
+<Text ff="monospace">Monospace text</Text>
+
+<br/><br/>
+
+You can also set font in Tailwind:
+
+```tsx
+<p>Default text</p>
+<p className="font">Explicit default text</p>
+<p className="font-bold">Bold text</p>
+<p className="font-light">Light text</p>
+<p className="font-mono">Monospace text</p>
+```
+
+<p>Default text</p>
+<p className="font">Explicit default text</p>
+<p className="font-bold">Bold text</p>
+<p className="font-light">Light text</p>
+<p className="font-mono">Monospace text</p>

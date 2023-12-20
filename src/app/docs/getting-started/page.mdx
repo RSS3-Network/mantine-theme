@@ -1,0 +1,219 @@
+# Getting Started
+
+## Template
+
+TODO.
+
+## Automatic Setup
+
+TODO.
+
+## Manual Setup
+
+Here is a step-by-step guide to setup the theme with Next.js.
+
+### 0. Setup Next.js
+
+Please follow [Next.js](https://nextjs.org/docs/getting-started) to setup your project. (App Directory is recommended.)
+
+### 1. Install Mantine packages
+
+Install mantine packages and `@rss3/mantine-theme`:
+
+```bash
+npm i @mantine/core @rss3/mantine-theme
+```
+
+There are some additional packages that you might want to install, check [mantine's installation](https://mantine.dev/guides/next/#installation) page for the full list:
+
+
+### 2. Setup PostCSS
+
+Install the postcss package(s):
+
+```bash
+npm i -D postcss postcss-preset-mantine postcss-simple-vars postcss-import
+```
+
+Create a `postcss.config.js` file:
+
+```js
+module.exports = {
+  plugins: {
+    'postcss-import': {},
+    'postcss-preset-mantine': {},
+    'postcss-simple-vars': {
+      variables: {
+        'mantine-breakpoint-xs': '36em',
+        'mantine-breakpoint-sm': '40em',
+        'mantine-breakpoint-md': '48em',
+        'mantine-breakpoint-lg': '64em',
+        'mantine-breakpoint-xl': '80em',
+        'mantine-breakpoint-2xl': '96em',
+      },
+    },
+  },
+}
+```
+
+### 3. Setup MantineProvider
+
+Assume you are using the App Directory in Next.js.
+
+Create a `globals.css` file:
+
+```css
+/* ./styles/globals.css */
+@import '@mantine/core/styles.css';
+```
+
+Import the CSS file and `MantineProvider` in the root layout file:
+
+```tsx
+// ./app/layout.tsx
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
+import { theme } from '@rss3/mantine-theme'
+import '../styles/globals.css'
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ColorSchemeScript />
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+Now you are all set! You can start using Mantine components in your app:
+
+```tsx
+// ./app/page.tsx
+import { Button } from '@mantine/core'
+
+export default function Page() {
+  return <Button>Hello RSS3 Theme</Button>
+}
+```
+
+import { Button } from '@mantine/core'
+
+<Button>Hello RSS3 Theme</Button>
+
+
+<br/><br/>
+
+Please refer to [mantine's docuementation](https://mantine.dev/guides/next) for more information about integrating mantine with Next.js.
+
+### 4. Setup Tailwind (Optional)
+
+You can [style mantine components with tailwind](https://mantine.dev/styles/css-modules/#styling-mantine-components-without-css-modules).
+
+If you want, you can follow the steps below.
+
+Install the tailwind package(s):
+
+```bash
+npm i -D tailwindcss autoprefixer
+```
+
+Create a `tailwind.config.js` file:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  presets: [
+    // add rss3 preset
+    require('@rss3/mantine-theme/tailwind/preset'),
+  ],
+}
+```
+
+Change your `styles/globals.css` file to this:
+
+```css
+@layer tw_base, mantine, tw_components, tw_utilities;
+
+/* import tailwind */
+@import "tailwindcss/base" layer(tw_base);
+@import "tailwindcss/components" layer(tw_components);
+@import "tailwindcss/utilities" layer(tw_utilities);
+
+/* import mantine */
+@import "@mantine/core/styles.layer.css";
+```
+
+import { Alert } from '@mantine/core'
+
+<Alert variant="light" color="blue" title="What's layer?" my="md">
+Note that here we setup tailwind slightly different from [the official docs](https://arc.net/l/quote/eifghbsm).
+We use the [CSS `@layer`](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) directive to control the order of the css.
+This is because we want to make sure that the mantine styles doesn't get overridden by tailwind reset (`tw_base`).
+In this case, the order is `tw_base` -> `mantine` -> `tw_components` -> `tw_utilities`.
+</Alert>
+
+Finally, Change your `postcss.config.js` file to this:
+
+```js
+module.exports = {
+  plugins: {
+    'postcss-import': {},
+    'postcss-preset-mantine': {},
+    'postcss-simple-vars': {
+      variables: {
+        'mantine-breakpoint-xs': '36em',
+        'mantine-breakpoint-sm': '40em',
+        'mantine-breakpoint-md': '48em',
+        'mantine-breakpoint-lg': '64em',
+        'mantine-breakpoint-xl': '80em',
+        'mantine-breakpoint-2xl': '96em',
+      },
+    },
+
+    // for tailwind
+    autoprefixer: {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+  },
+}
+```
+
+Now, you can use tailwind classes in your app:
+
+```tsx
+import { TextInput } from '@mantine/core';
+
+function Demo() {
+  return (
+    <TextInput
+      classNames={{
+        root: 'mt-4 w-[200px]',
+        input: 'bg-red-500 text-white placeholder-yellow border-green border-5',
+      }}
+      placeholder="Type something…"
+    />
+  );
+}
+```
+
+import { TextInput } from '@mantine/core';
+
+<TextInput
+	classNames={{
+		root: 'mt-4 w-[200px]',
+		input: 'bg-red-500 text-white placeholder-yellow border-green border-5',
+	}}
+	placeholder="Type something…"
+/>
