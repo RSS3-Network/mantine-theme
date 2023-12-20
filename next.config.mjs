@@ -11,7 +11,6 @@ const withMDX = WithMDX({
 const nextConfig = {
 	// Configure `pageExtensions` to include MDX files
 	pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-	swcMinify: false,
 	experimental: {
 		// mdxRs: true,
 	},
