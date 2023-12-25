@@ -28,6 +28,7 @@ export function Nav() {
 		<>
 			{nav.map((item) => (
 				<NavLink
+					className="font-bold"
 					key={item.label}
 					href={item.href}
 					label={item.label}
