@@ -144,7 +144,8 @@ const preset: Config = {
 		},
 		fontFamily: {
 			DEFAULT: ['var(--mantine-font-family)'],
-			monospace: ['var(--mantine-font-family-monospace)'],
+			sans: ['var(--mantine-font-family)'],
+			mono: ['var(--mantine-font-family-monospace)'],
 			headings: ['var(--mantine-font-family-headings)'],
 		},
 		fontSize: {
