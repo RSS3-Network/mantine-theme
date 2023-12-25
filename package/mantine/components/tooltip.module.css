@@ -1,0 +1,5 @@
+.tooltip {
+  background: var(--mantine-color-default);
+  box-shadow: var(--mantine-shadow-sm);
+  color: var(--mantine-color-text);
+}

@@ -8,3 +8,14 @@
 ol, ul, menu {
   list-style: revert;
 }
+
+.mantine-InputWrapper-description {
+  margin: 0;
+}
+
+.mantine-NavLink-root {
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -2,16 +2,149 @@
 
 Here is a list of demo components in one page to show the style.
 
+import { Stack, Space, Text } from '@mantine/core'
+
 ## Inputs
 
-## Combobo
+### Checkbox
+
+import { Checkbox } from '@mantine/core'
+
+<Stack>
+  <Checkbox defaultChecked={false} label="Default checkbox" />
+  <Checkbox defaultChecked={false} indeterminate label="Indeterminate checkbox" />
+  <Checkbox defaultChecked label="Checked checkbox" />
+  <Checkbox defaultChecked variant="outline" label="Outline checked checkbox" />
+  <Checkbox variant="outline" indeterminate label="Outline indeterminate checkbox" />
+  <Checkbox disabled label="Disabled checkbox" />
+  <Checkbox disabled defaultChecked label="Disabled checked checkbox" />
+  <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" />
+</Stack>
+
+### Chip
+
+import { Chip } from '@mantine/core'
+
+<Chip defaultChecked>Awesome chip</Chip>
+
+### Input
+
+import { TextInput, rem } from '@mantine/core'
+import { IconAt } from '@tabler/icons-react'
+
+<Stack>
+  <TextInput label="Input label" description="Input description" placeholder="Input placeholder" withAsterisk leftSection={<IconAt style={{ width: rem(18), height: rem(18) }} />} />
+  <TextInput label="Input label" description="Input description" placeholder="Input placeholder" withAsterisk leftSection={<IconAt style={{ width: rem(18), height: rem(18) }} />} error="With error" />
+</Stack>
+
+### Fieldset
+
+import { Fieldset } from '@mantine/core'
+
+<Fieldset legend="Personal information">
+  <TextInput label="Your name" placeholder="Your name" />
+  <TextInput label="Email" placeholder="Email" mt="md" />
+</Fieldset>
+
+### NativeSelect
+
+import { NativeSelect } from '@mantine/core'
+
+<NativeSelect label="Input label" description="Input description" data={['React', 'Angular', 'Vue']} />
+
+### PinInput
+
+import { PinInput } from '@mantine/core'
+
+<PinInput />
+
+### Radio
+
+import { Radio } from '@mantine/core'
+
+<Stack>
+  <Radio defaultChecked={false} label="Default radio" />
+  <Radio defaultChecked label="Checked radio" />
+  <Radio defaultChecked variant="outline" label="Outline checked radio" />
+  <Radio disabled label="Disabled radio" />
+  <Radio disabled defaultChecked label="Disabled checked radio" />
+</Stack>
+
+### Rating
+
+import { Rating } from '@mantine/core'
+
+<Rating />
+
+### SegmentedControl
+
+import { SegmentedControl } from '@mantine/core'
+
+<SegmentedControl data={['React', 'Angular', 'Vue']} />
+
+### Slider
+
+import { Slider } from '@mantine/core'
+
+<Slider
+  defaultValue={30}
+  marks={[
+    { value: 20, label: '20%' },
+    { value: 50, label: '50%' },
+    { value: 80, label: '80%' },
+  ]}
+/>
+
+### Switch
+
+import { Switch } from '@mantine/core'
+
+<Switch defaultChecked label="I agree to sell my privacy" />
+
+### Textarea
+
+import { Textarea } from '@mantine/core'
+
+<Textarea label="Textarea label" placeholder="Textarea placeholder" />
+
+## Comboboxs
+
+### Autocomplete
+
+import { Autocomplete } from '@mantine/core'
+
+<Autocomplete data={['React', 'Angular', 'Vue']} label="Your favorite library" placeholder="Pick value or enter anything" />
+
+### Combobox
+
+import { ComboboxDemo } from './demo/combobox.tsx'
+
+<ComboboxDemo />
+
+### MultiSelect
+
+import { MultiSelect } from '@mantine/core'
+
+<MultiSelect data={['React', 'Angular', 'Vue']} label="Your favorite libraries" placeholder="Pick value" />
+
+### Select
+
+import { Select } from '@mantine/core'
+
+<Select data={['React', 'Angular', 'Vue']} label="Your favorite library" placeholder="Pick value" />
+
+### TagsInput
+
+import { TagsInput } from '@mantine/core'
+
+<TagsInput label="Press Enter to submit a tag" placeholder="Enter tag" />
 
 ## Buttons
 
 ### ActionIcon
 
-import { ActionIcon } from '@mantine/core';
-import { IconAdjustments } from '@tabler/icons-react';
+import { ActionIcon } from '@mantine/core'
+import { IconAdjustments } from '@tabler/icons-react'
 
 <ActionIcon variant="filled" aria-label="Settings">
   <IconAdjustments size="1rem" stroke={1.5} />
@@ -19,6 +152,260 @@ import { IconAdjustments } from '@tabler/icons-react';
 
 ### Button
 
-import { Button } from '@mantine/core';
+import { Button } from '@mantine/core'
 
-<Button>Default</Button>
+<Button size="lg" my="lg">Button Demo</Button>
+
+<Stack align="flex-start">
+  <div>
+    <Button variant="default">Build with RSS3</Button> (default)
+  </div>
+  <div>
+   <Button>Build with RSS3</Button> (filled)
+  </div>
+  <div>
+    <Button variant="light">Build with RSS3</Button> (light)
+  </div>
+  <div>
+   <Button variant="outline">Build with RSS3</Button> (outline)
+  </div>
+  <div>
+   <Button variant="subtle">Build with RSS3</Button> (subtle)
+  </div>
+  <div>
+    <Button variant="transparent">Build with RSS3</Button> (transparent)
+  </div>
+  <div>
+    <Button variant="white">Build with RSS3</Button> (white)
+  </div>
+</Stack>
+
+### CloseButton
+
+import { CloseButton } from '@mantine/core'
+
+<CloseButton />
+
+## Navigation
+
+### Anchor
+
+import { Anchor } from '@mantine/core'
+
+<Anchor href="https://rss3.io">RSS3 Website</Anchor>
+
+### Breadcrumbs
+
+import { Breadcrumbs } from '@mantine/core'
+
+<Breadcrumbs>
+  <Anchor href="https://rss3.io">RSS3</Anchor>
+  <Anchor href="https://rss3.io">RSS3 Website</Anchor>
+  <Anchor href="https://rss3.io">RSS3 Docs</Anchor>
+</Breadcrumbs>
+
+### Burger
+
+import { BurgerDemo } from './demo/burger.tsx'
+
+<BurgerDemo />
+
+### Navlink
+
+import { NavlinkDemo } from './demo/navlink.tsx'
+
+<div className='max-w-[300px]'>
+  <NavlinkDemo />
+</div>
+
+### Pagination
+
+import { Pagination } from '@mantine/core'
+
+<Pagination total={10} />
+
+### Stepper
+
+import { StepperDemo } from './demo/stepper.tsx'
+
+<StepperDemo />
+
+### Tabs
+
+import { TabsDemo } from './demo/tabs.tsx'
+
+<TabsDemo />
+
+## Feedback
+
+### Alert
+
+import { Alert } from '@mantine/core'
+import { IconInfoCircle } from '@tabler/icons-react';
+
+<div className='max-w-[500px]'>
+  <Alert variant="light" color="blue" title="Alert title" icon={<IconInfoCircle />}>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. At officiis, quae tempore necessitatibus placeat saepe.
+  </Alert>
+</div>
+
+### Loader
+
+import { Loader } from '@mantine/core'
+
+<Loader />
+
+### Notification
+
+import { Notification } from '@mantine/core'
+
+<Notification title="We notify you that" maw="500">
+  You are now obligated to give a star to Mantine project on GitHub
+</Notification>
+
+### Progress
+
+import { Progress } from '@mantine/core'
+
+<Progress value={50} />
+
+<Space h="lg" />
+
+import { ProgressRoot, ProgressSection, ProgressLabel, Tooltip } from '@mantine/core'
+
+<ProgressRoot size={40}>
+  <Tooltip label="Documents – 33Gb">
+    <ProgressSection value={33} color="cyan">
+      <ProgressLabel>Documents</ProgressLabel>
+    </ProgressSection>
+  </Tooltip>
+
+  <Tooltip label="Photos – 28Gb">
+    <ProgressSection value={28} color="pink">
+      <ProgressLabel>Photos</ProgressLabel>
+    </ProgressSection>
+  </Tooltip>
+
+  <Tooltip label="Other – 15Gb">
+    <ProgressSection value={15} color="orange">
+      <ProgressLabel>Other</ProgressLabel>
+    </ProgressSection>
+  </Tooltip>
+</ProgressRoot>
+
+### RingProgress
+
+import { RingProgress } from '@mantine/core'
+
+<RingProgress
+  label={
+    <Text size="xs" ta="center" my="0">
+      Application data usage
+    </Text>
+  }
+  sections={[
+    { value: 40, color: 'cyan' },
+    { value: 15, color: 'orange' },
+    { value: 15, color: 'grape' },
+  ]}
+/>
+
+### Skeleton
+
+import { Skeleton } from '@mantine/core'
+
+<Skeleton height={50} circle mb="xl" />
+<Skeleton height={8} radius="xl" />
+<Skeleton height={8} mt={6} radius="xl" />
+<Skeleton height={8} mt={6} width="70%" radius="xl" />
+
+## Overlays
+
+### Dialog
+
+import { DialogDemo } from './demo/dialog.tsx'
+
+<DialogDemo />
+
+### Drawer
+
+import { DrawerDemo } from './demo/drawer.tsx'
+
+<DrawerDemo />
+
+### HoverCard
+
+import { HoverCardDemo } from './demo/hover-card.tsx'
+
+<HoverCardDemo />
+
+### Menu
+
+import { MenuDemo } from './demo/menu.tsx'
+
+<MenuDemo />
+
+### Modal
+
+import { ModalDemo } from './demo/modal.tsx'
+
+<ModalDemo />
+
+### Popover
+
+import { PopoverDemo } from './demo/popover.tsx'
+
+<PopoverDemo />
+
+### Tooltip
+
+import { TooltipDemo } from './demo/tooltip.tsx'
+
+<TooltipDemo />
+
+## Data Display
+
+### Accordion
+
+import { AccordionDemo } from './demo/accordion.tsx'
+
+<AccordionDemo />
+
+### Badge
+
+import { Badge } from '@mantine/core'
+
+<Stack>
+  <Badge variant='filled'>Badge</Badge>
+  <Badge variant='light'>Badge</Badge>
+  <Badge variant='outline'>Badge</Badge>
+  <Badge variant='dot'>Badge</Badge>
+  <Badge variant='transparent'>Badge</Badge>
+  <Badge variant="default">Badge</Badge>
+  <Badge variant='white'>Badge</Badge>
+</Stack>
+
+### Card
+
+import { CardDemo } from './demo/card.tsx'
+
+<CardDemo />
+
+### Indicator
+
+import { Indicator, Avatar } from '@mantine/core';
+
+
+<Indicator w="fit-content">
+  <Avatar
+    size="lg"
+    radius="sm"
+    src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-1.png"
+  />
+</Indicator>
+
+### Timeline
+
+import { TimelineDemo } from './demo/timeline.tsx'
+
+<TimelineDemo />
