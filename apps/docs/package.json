@@ -6,6 +6,7 @@
 	"license": "MIT",
 	"author": "Songkeys <songv587@gmail.com>",
 	"scripts": {
+		"postinstall": "cd ../../packages/mantine-theme && pnpm build && cd -",
 		"build": "next build",
 		"dev": "next dev",
 		"lint": "next lint",

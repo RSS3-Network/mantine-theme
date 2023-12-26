@@ -40,9 +40,7 @@
 	"main": "./dist/mantine/index.js",
 	"module": "./dist/mantine/index.mjs",
 	"types": "./dist/mantine/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"format": "biome format . --write",
