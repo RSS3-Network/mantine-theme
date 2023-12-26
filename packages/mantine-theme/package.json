@@ -40,15 +40,13 @@
 	"main": "./dist/mantine/index.js",
 	"module": "./dist/mantine/index.mjs",
 	"types": "./dist/mantine/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"format": "biome format . --write",
 		"lint": "biome check .",
 		"lint:fix": "biome check . --apply",
-		"prepublishOnly": "npm run build:package",
+		"prepublishOnly": "npm run build",
 		"release": "bumpp",
 		"typecheck": "tsc --noEmit"
 	},

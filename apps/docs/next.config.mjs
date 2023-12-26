@@ -9,9 +9,7 @@ const withMDX = WithMDX({
 	},
 })
 
-const withTM = WithTm({
-	transpileModules: ['@rss3/mantine-theme'],
-})
+const withTM = WithTm(['@rss3/mantine-theme'])
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
