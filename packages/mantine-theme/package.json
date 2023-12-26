@@ -40,9 +40,7 @@
 	"main": "./dist/mantine/index.js",
 	"module": "./dist/mantine/index.mjs",
 	"types": "./dist/mantine/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "tsup",
 		"format": "biome format . --write",
@@ -70,5 +68,8 @@
 	"packageManager": "pnpm@8.12.1",
 	"engines": {
 		"node": ">=16.6.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
