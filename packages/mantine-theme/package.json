@@ -1,6 +1,6 @@
 {
 	"name": "@rss3/mantine-theme",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "The RSS3 theme for mantine app development",
 	"keywords": [],
 	"license": "MIT",
@@ -40,7 +40,9 @@
 	"main": "./dist/mantine/index.js",
 	"module": "./dist/mantine/index.mjs",
 	"types": "./dist/mantine/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup",
 		"format": "biome format . --write",
@@ -53,6 +55,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^1.4.1",
 		"@mantine/core": "^7.3.2",
+		"bumpp": "^9.2.1",
 		"next": "^14.0.4",
 		"tailwindcss": "^3.4.0"
 	},
