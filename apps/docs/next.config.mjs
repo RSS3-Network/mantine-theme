@@ -14,7 +14,6 @@ const nextConfig = {
 	pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
 	experimental: {
 		// mdxRs: true,
-		externalDir: true,
 	},
 	transpilePackages: ['@rss3/mantine-theme'],
 }

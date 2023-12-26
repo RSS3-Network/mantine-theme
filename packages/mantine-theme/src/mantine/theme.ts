@@ -1,4 +1,5 @@
-import { DEFAULT_THEME, createTheme, mergeMantineTheme } from '@mantine/core'
+import { DEFAULT_THEME, type MantineTheme, createTheme } from '@mantine/core'
+import { deepmerge } from '../utils/deepmerge'
 // @ts-ignore
 import appShellClasses from './components/app-shell.module.css'
 // @ts-ignore
@@ -45,4 +46,4 @@ const themeOverride = createTheme({
 	primaryColor: 'blue',
 })
 
-export const theme = mergeMantineTheme(DEFAULT_THEME, themeOverride)
+export const theme = deepmerge(DEFAULT_THEME, themeOverride) as MantineTheme
