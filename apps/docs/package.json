@@ -15,11 +15,11 @@
 		"@mantine/core": "^7.3.2",
 		"@mantine/hooks": "^7.3.2",
 		"@rss3/mantine-theme": "workspace:^",
+		"@tabler/icons-react": "^2.44.0",
 		"clsx": "^2.0.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0",
 		"next": "^14.0.4",
-		"@tabler/icons-react": "^2.44.0"
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@mdx-js/loader": "^3.0.0",
@@ -29,6 +29,7 @@
 		"@types/node": "20.10.5",
 		"@types/react": "18.2.45",
 		"autoprefixer": "^10.4.16",
+		"next-transpile-modules": "^10.0.1",
 		"postcss": "^8.4.32",
 		"postcss-import": "^15.1.0",
 		"postcss-preset-mantine": "^1.12.2",
