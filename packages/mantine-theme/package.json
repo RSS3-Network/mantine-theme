@@ -50,9 +50,6 @@
 		"release": "bumpp",
 		"typecheck": "tsc --noEmit"
 	},
-	"simple-git-hooks": {
-		"pre-commit": "npm run format && npm run lint:fix"
-	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.4.1",
 		"@mantine/core": "^7.3.2",

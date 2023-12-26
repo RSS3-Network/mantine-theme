@@ -3,63 +3,32 @@
 	"version": "0.0.0",
 	"private": true,
 	"description": "The RSS3 theme for mantine app development",
-	"keywords": [],
 	"license": "MIT",
 	"author": "Songkeys <songv587@gmail.com>",
-	"exports": {
-		".": {
-			"import": {
-				"types": "./dist/mantine/index.d.mts",
-				"default": "./dist/mantine/index.mjs"
-			},
-			"require": {
-				"types": "./dist/mantine/index.d.ts",
-				"default": "./dist/mantine/index.js"
-			}
-		},
-		"./next": {
-			"import": {
-				"types": "./dist/mantine/next/index.d.mts",
-				"default": "./dist/mantine/next/index.mjs"
-			},
-			"require": {
-				"types": "./dist/mantine/next/index.d.ts",
-				"default": "./dist/mantine/next/index.js"
-			}
-		}
-	},
-	"main": "./dist/mantine/index.js",
-	"module": "./dist/mantine/index.mjs",
-	"types": "./dist/mantine/index.d.ts",
-	"files": ["dist"],
 	"scripts": {
 		"build": "next build",
 		"dev": "next dev",
-		"format": "biome format . --write",
-		"lint": "biome check .",
-		"lint:fix": "biome check . --apply",
-		"prepublishOnly": "npm run build:package",
-		"release": "bumpp",
-		"typecheck": "tsc --noEmit"
+		"lint": "next lint",
+		"start": "next start"
 	},
-	"simple-git-hooks": {
-		"pre-commit": "npm run format && npm run lint:fix"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "^1.4.1",
+	"dependencies": {
 		"@mantine/core": "^7.3.2",
 		"@mantine/hooks": "^7.3.2",
+		"@rss3/mantine-theme": "workspace:^",
+		"clsx": "^2.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"next": "^14.0.4",
+		"@tabler/icons-react": "^2.44.0"
+	},
+	"devDependencies": {
 		"@mdx-js/loader": "^3.0.0",
 		"@mdx-js/react": "^3.0.0",
 		"@next/mdx": "^14.0.4",
-		"@rss3/mantine-theme": "workspace:^",
-		"@tabler/icons-react": "^2.44.0",
 		"@types/mdx": "^2.0.10",
 		"@types/node": "20.10.5",
 		"@types/react": "18.2.45",
 		"autoprefixer": "^10.4.16",
-		"clsx": "^2.0.0",
-		"next": "^14.0.4",
 		"postcss": "^8.4.32",
 		"postcss-import": "^15.1.0",
 		"postcss-preset-mantine": "^1.12.2",
@@ -67,21 +36,7 @@
 		"rehype-mdx-code-props": "^2.0.0",
 		"shikiji": "^0.9.11",
 		"simple-git-hooks": "^2.9.0",
-		"tailwindcss": "^3.4.0",
-		"tsup": "^8.0.1",
-		"typescript": "5.3.3"
-	},
-	"peerDependencies": {
-		"@mantine/core": ">=7.0.0",
-		"react": ">=18.0.0"
-	},
-	"peerDependenciesMeta": {
-		"@mantine/core": {
-			"optional": true
-		},
-		"react": {
-			"optional": true
-		}
+		"tailwindcss": "^3.4.0"
 	},
 	"packageManager": "pnpm@8.12.1",
 	"engines": {
