@@ -101,6 +101,10 @@ importers:
         version: 3.4.0
 
   packages/mantine-theme:
+    dependencies:
+      '@fastify/deepmerge':
+        specifier: ^1.3.0
+        version: 1.3.0
     devDependencies:
       '@biomejs/biome':
         specifier: ^1.4.1
@@ -405,6 +409,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@fastify/deepmerge@1.3.0:
+    resolution: {integrity: sha512-J8TOSBq3SoZbDhM9+R/u77hP93gz/rajSA+K2kGyijPpORPWUXHUpTaleoj+92As0S9uPRP7Oi8IqMf0u+ro6A==}
+    dev: false
 
   /@floating-ui/core@1.5.2:
     resolution: {integrity: sha512-Ii3MrfY/GAIN3OhXNzpCKaLxHQfJF9qvwq/kEJYdqDxeIHa01K8sldugal6TmeeXl+WMvhv9cnVzUTaFFJF09A==}

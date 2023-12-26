@@ -2,7 +2,7 @@
 
 ## Template
 
-TODO.
+[mantine-theme-template](https://github.com/rss3-network/mantine-theme-template) is a template repository that you can use to quickly setup a Next.js project with Mantine and RSS3 Theme.
 
 ## Automatic Setup
 
@@ -95,7 +95,7 @@ We use [Poppins](https://fonts.google.com/specimen/Poppins) as the default font.
 
 If you are using Next.js, you can use [next/font](https://nextjs.org/docs/basic-features/font-optimization) to load the font:
 
-```tsx highlightLines="{6-8}"
+```tsx highlightLines="{6-13}"
 // ./app/layout.tsx
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { theme } from '@rss3/mantine-theme'
@@ -103,6 +103,11 @@ import '../styles/globals.css'
 
 // font
 import { Poppins } from 'next/font/google'
+const font = Poppins({
+  weight: ['200', '300', '400', '500', '600', '700', '800'],
+  subsets: ['latin'],
+  variable: '--font-poppins',
+})
 theme.fontFamily = font.style.fontFamily
 
 export function Layout({ children }: { children: React.ReactNode }) {

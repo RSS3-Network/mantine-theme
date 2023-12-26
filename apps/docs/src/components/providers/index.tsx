@@ -5,7 +5,7 @@ import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { theme } from '@rss3/mantine-theme'
 import { Poppins } from 'next/font/google'
 
-export const font = Poppins({
+const font = Poppins({
 	weight: ['200', '300', '400', '500', '600', '700', '800'],
 	subsets: ['latin'],
 	variable: '--font-poppins',

@@ -1,6 +1,6 @@
 {
 	"name": "@rss3/mantine-theme",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"description": "The RSS3 theme for mantine app development",
 	"keywords": [],
 	"license": "MIT",
@@ -40,7 +40,9 @@
 	"main": "./dist/mantine/index.js",
 	"module": "./dist/mantine/index.mjs",
 	"types": "./dist/mantine/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "tsup",
 		"format": "biome format . --write",
@@ -49,6 +51,9 @@
 		"prepublishOnly": "npm run build",
 		"release": "bumpp",
 		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@fastify/deepmerge": "^1.3.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.4.1",
