@@ -1,8 +1,8 @@
 import '@/css/globals.css'
 
-import { Providers } from '@/components/providers'
-import { Shell } from '@/components/shell'
 import type { Metadata } from 'next'
+import { Providers } from '../components/providers'
+import { Shell } from '../components/shell'
 
 export const metadata: Metadata = {}
 

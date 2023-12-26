@@ -1,7 +1,8 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig((options) => ({
-	entry: ['./package/index.ts'],
+	entry: ['./src/**/*'],
+	bundle: false,
 	outDir: 'dist',
 	clean: true,
 	sourcemap: true,
@@ -10,4 +11,5 @@ export default defineConfig((options) => ({
 	platform: 'node',
 	dts: true,
 	target: 'node18',
+	external: ['next', 'react'],
 }))

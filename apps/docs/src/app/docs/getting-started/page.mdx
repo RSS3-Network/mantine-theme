@@ -37,7 +37,7 @@ npm i -D postcss postcss-preset-mantine postcss-simple-vars postcss-import
 
 Create a `postcss.config.js` file:
 
-```js
+```js filename="postcss.config.js"
 module.exports = {
   plugins: {
     'postcss-import': {},
@@ -62,18 +62,48 @@ Assume you are using the App Directory in Next.js.
 
 Create a `globals.css` file:
 
-```css
+```css filename="styles/globals.css"
 /* ./styles/globals.css */
 @import '@mantine/core/styles.css';
 ```
 
 Import the CSS file and `MantineProvider` in the root layout file:
 
-```tsx
+```tsx filename="app/layout.tsx"
 // ./app/layout.tsx
 import { ColorSchemeScript, MantineProvider } from '@mantine/core'
 import { theme } from '@rss3/mantine-theme'
 import '../styles/globals.css'
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <ColorSchemeScript />
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+### 4. Setup Font
+
+We use [Poppins](https://fonts.google.com/specimen/Poppins) as the default font.
+
+If you are using Next.js, you can use [next/font](https://nextjs.org/docs/basic-features/font-optimization) to load the font:
+
+```tsx highlightLines="{6-8}"
+// ./app/layout.tsx
+import { ColorSchemeScript, MantineProvider } from '@mantine/core'
+import { theme } from '@rss3/mantine-theme'
+import '../styles/globals.css'
+
+// font
+import { Poppins } from 'next/font/google'
+theme.fontFamily = font.style.fontFamily
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -109,7 +139,7 @@ import { Button } from '@mantine/core'
 
 Please refer to [mantine's docuementation](https://mantine.dev/guides/next) for more information about integrating mantine with Next.js.
 
-### 4. Setup Tailwind (Optional)
+### 5. Setup Tailwind (Optional)
 
 You can [style mantine components with tailwind](https://mantine.dev/styles/css-modules/#styling-mantine-components-without-css-modules).
 
@@ -123,7 +153,7 @@ npm i -D tailwindcss autoprefixer
 
 Create a `tailwind.config.js` file:
 
-```js
+```js filename="tailwind.config.js" highlightLines="{13}"
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -143,7 +173,7 @@ module.exports = {
 
 Change your `styles/globals.css` file to this:
 
-```css
+```css filename="styles/globals.css"
 @layer tw_base, mantine, tw_components, tw_utilities;
 
 /* import tailwind */
@@ -166,7 +196,7 @@ In this case, the order is `tw_base` -> `mantine` -> `tw_components` -> `tw_util
 
 Finally, Change your `postcss.config.js` file to this:
 
-```js
+```js filename="postcss.config.js" highlightLines="{16-19}"
 module.exports = {
   plugins: {
     'postcss-import': {},
@@ -192,7 +222,7 @@ module.exports = {
 
 Now, you can use tailwind classes in your app:
 
-```tsx
+```tsx filename="demo.ts"
 import { TextInput } from '@mantine/core';
 
 function Demo() {

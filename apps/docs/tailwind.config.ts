@@ -7,5 +7,5 @@ export default {
 	theme: {
 		extend: {},
 	},
-	presets: [require('./package/tailwind/preset')],
+	presets: [require('@rss3/mantine-theme/tailwind/preset')],
 }

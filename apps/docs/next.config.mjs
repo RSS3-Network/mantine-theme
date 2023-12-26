@@ -1,9 +1,10 @@
 import WithMDX from '@next/mdx'
+import rehypeMdxCodeProps from 'rehype-mdx-code-props'
 
 const withMDX = WithMDX({
 	options: {
 		remarkPlugins: [],
-		rehypePlugins: [],
+		rehypePlugins: [[rehypeMdxCodeProps]],
 	},
 })
 

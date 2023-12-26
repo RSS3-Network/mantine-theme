@@ -1,14 +1,12 @@
 import { DEFAULT_THEME, createTheme, mergeMantineTheme } from '@mantine/core'
+// @ts-ignore
 import appShellClasses from './components/app-shell.module.css'
+// @ts-ignore
 import buttonClasses from './components/button.module.css'
+// @ts-ignore
 import tooltipClasses from './components/tooltip.module.css'
-import { font } from './font'
 
 const themeOverride = createTheme({
-	fontFamily: font.style.fontFamily,
-	headings: {
-		fontFamily: font.style.fontFamily,
-	},
 	colors: {
 		blue: [
 			'#e5f4ff',

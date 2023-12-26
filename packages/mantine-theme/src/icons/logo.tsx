@@ -1,4 +1,5 @@
 import { rem } from '@mantine/core'
+import React from 'react'
 
 interface IconLogoProps extends React.ComponentPropsWithoutRef<'svg'> {
 	size?: number | string

@@ -4,76 +4,119 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-devDependencies:
-  '@biomejs/biome':
-    specifier: ^1.4.1
-    version: 1.4.1
-  '@mantine/core':
-    specifier: ^7.3.2
-    version: 7.3.2(@mantine/hooks@7.3.2)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
-  '@mantine/hooks':
-    specifier: ^7.3.2
-    version: 7.3.2(react@18.2.0)
-  '@mantinex/shiki':
-    specifier: ^1.0.3
-    version: 1.0.3(@mantine/core@7.3.2)(@mantine/hooks@7.3.2)(react-dom@18.2.0)(react@18.2.0)(shikiji@0.9.11)
-  '@mdx-js/loader':
-    specifier: ^3.0.0
-    version: 3.0.0(webpack@5.89.0)
-  '@mdx-js/react':
-    specifier: ^3.0.0
-    version: 3.0.0(@types/react@18.2.45)(react@18.2.0)
-  '@next/mdx':
-    specifier: ^14.0.4
-    version: 14.0.4(@mdx-js/loader@3.0.0)(@mdx-js/react@3.0.0)
-  '@tabler/icons-react':
-    specifier: ^2.44.0
-    version: 2.44.0(react@18.2.0)
-  '@types/mdx':
-    specifier: ^2.0.10
-    version: 2.0.10
-  '@types/node':
-    specifier: 20.10.5
-    version: 20.10.5
-  '@types/react':
-    specifier: 18.2.45
-    version: 18.2.45
-  autoprefixer:
-    specifier: ^10.4.16
-    version: 10.4.16(postcss@8.4.32)
-  clsx:
-    specifier: ^2.0.0
-    version: 2.0.0
-  next:
-    specifier: ^14.0.4
-    version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
-  postcss:
-    specifier: ^8.4.32
-    version: 8.4.32
-  postcss-import:
-    specifier: ^15.1.0
-    version: 15.1.0(postcss@8.4.32)
-  postcss-preset-mantine:
-    specifier: ^1.12.2
-    version: 1.12.2(postcss@8.4.32)
-  postcss-simple-vars:
-    specifier: ^7.0.1
-    version: 7.0.1(postcss@8.4.32)
-  shikiji:
-    specifier: ^0.9.11
-    version: 0.9.11
-  simple-git-hooks:
-    specifier: ^2.9.0
-    version: 2.9.0
-  tailwindcss:
-    specifier: ^3.4.0
-    version: 3.4.0
-  tsup:
-    specifier: ^8.0.1
-    version: 8.0.1(postcss@8.4.32)(typescript@5.3.3)
-  typescript:
-    specifier: 5.3.3
-    version: 5.3.3
+importers:
+
+  .:
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.4.1
+        version: 1.4.1
+      '@types/node':
+        specifier: ^20.10.5
+        version: 20.10.5
+      '@types/react':
+        specifier: ^18.2.45
+        version: 18.2.45
+      tsup:
+        specifier: ^8.0.1
+        version: 8.0.1(postcss@8.4.32)(typescript@5.3.3)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
+  apps/docs:
+    dependencies:
+      react:
+        specifier: '>=18.0.0'
+        version: 18.2.0
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.4.1
+        version: 1.4.1
+      '@mantine/core':
+        specifier: ^7.3.2
+        version: 7.3.2(@mantine/hooks@7.3.2)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
+      '@mantine/hooks':
+        specifier: ^7.3.2
+        version: 7.3.2(react@18.2.0)
+      '@mdx-js/loader':
+        specifier: ^3.0.0
+        version: 3.0.0(webpack@5.89.0)
+      '@mdx-js/react':
+        specifier: ^3.0.0
+        version: 3.0.0(@types/react@18.2.45)(react@18.2.0)
+      '@next/mdx':
+        specifier: ^14.0.4
+        version: 14.0.4(@mdx-js/loader@3.0.0)(@mdx-js/react@3.0.0)
+      '@rss3/mantine-theme':
+        specifier: workspace:*
+        version: link:../../packages/mantine-theme
+      '@tabler/icons-react':
+        specifier: ^2.44.0
+        version: 2.44.0(react@18.2.0)
+      '@types/mdx':
+        specifier: ^2.0.10
+        version: 2.0.10
+      '@types/node':
+        specifier: 20.10.5
+        version: 20.10.5
+      '@types/react':
+        specifier: 18.2.45
+        version: 18.2.45
+      autoprefixer:
+        specifier: ^10.4.16
+        version: 10.4.16(postcss@8.4.32)
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
+      next:
+        specifier: ^14.0.4
+        version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
+      postcss:
+        specifier: ^8.4.32
+        version: 8.4.32
+      postcss-import:
+        specifier: ^15.1.0
+        version: 15.1.0(postcss@8.4.32)
+      postcss-preset-mantine:
+        specifier: ^1.12.2
+        version: 1.12.2(postcss@8.4.32)
+      postcss-simple-vars:
+        specifier: ^7.0.1
+        version: 7.0.1(postcss@8.4.32)
+      rehype-mdx-code-props:
+        specifier: ^2.0.0
+        version: 2.0.0
+      shikiji:
+        specifier: ^0.9.11
+        version: 0.9.11
+      simple-git-hooks:
+        specifier: ^2.9.0
+        version: 2.9.0
+      tailwindcss:
+        specifier: ^3.4.0
+        version: 3.4.0
+      tsup:
+        specifier: ^8.0.1
+        version: 8.0.1(postcss@8.4.32)(typescript@5.3.3)
+      typescript:
+        specifier: 5.3.3
+        version: 5.3.3
+
+  packages/mantine-theme:
+    devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.4.1
+        version: 1.4.1
+      '@mantine/core':
+        specifier: ^7.3.2
+        version: 7.3.2(@mantine/hooks@7.3.2)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
+      next:
+        specifier: ^14.0.4
+        version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
+      tailwindcss:
+        specifier: ^3.4.0
+        version: 3.4.0
 
 packages:
 
@@ -468,22 +511,6 @@ packages:
       react: ^18.2.0
     dependencies:
       react: 18.2.0
-    dev: true
-
-  /@mantinex/shiki@1.0.3(@mantine/core@7.3.2)(@mantine/hooks@7.3.2)(react-dom@18.2.0)(react@18.2.0)(shikiji@0.9.11):
-    resolution: {integrity: sha512-On+RE/5uKsRaM80JQtNMyVtqz+rtmoCaR4O+Rr7pGvcJSKhl1TI9xsyvsYRG2SFYF4dDD6xruRU4aEhtXhbHIA==}
-    peerDependencies:
-      '@mantine/core': '>=7.0.0'
-      '@mantine/hooks': '>=7.0.0'
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      shikiji: ^0.7.4
-    dependencies:
-      '@mantine/core': 7.3.2(@mantine/hooks@7.3.2)(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)
-      '@mantine/hooks': 7.3.2(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      shikiji: 0.9.11
     dev: true
 
   /@mdx-js/loader@3.0.0(webpack@5.89.0):
@@ -1727,7 +1754,6 @@ packages:
 
   /js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-    dev: true
 
   /json-parse-even-better-errors@2.3.1:
     resolution: {integrity: sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==}
@@ -1774,7 +1800,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: true
 
   /markdown-extensions@2.0.0:
     resolution: {integrity: sha512-o5vL7aDWatOTX8LzaS1WMoaoxIiLRQJuIKKe2wAw6IeULDHaqbiqiggmx+pKvZDb1Sj+pE46Sn1T7lCqfFtg1Q==}
@@ -2598,7 +2623,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -2615,6 +2639,19 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
+    dev: true
+
+  /rehype-mdx-code-props@2.0.0:
+    resolution: {integrity: sha512-dGjba9oF6DrY6xKDxOuiHp2BtaWaF7hNhxPbtzDcPqRNRjw8fNhRD5Geqf8X8HRowzkykOJkqEX03CKYVpsHTw==}
+    dependencies:
+      '@types/hast': 3.0.3
+      acorn: 8.11.2
+      acorn-jsx: 5.3.2(acorn@8.11.2)
+      hast-util-to-estree: 3.1.0
+      unified: 11.0.4
+      unist-util-visit-parents: 6.0.1
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /remark-mdx@3.0.0:

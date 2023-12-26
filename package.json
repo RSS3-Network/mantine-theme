@@ -1,77 +1,26 @@
 {
 	"name": "@rss3/mantine-theme",
-	"version": "1.0.0",
+	"version": "0.0.0",
+	"private": true,
 	"description": "The RSS3 theme for mantine app development",
 	"keywords": [],
 	"license": "MIT",
 	"author": "Songkeys <songv587@gmail.com>",
-	"exports": {
-		".": {
-			"import": {
-				"types": "./dist/index.d.mts",
-				"default": "./dist/index.mjs"
-			},
-			"require": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
-			}
-		}
-	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
 	"scripts": {
-		"build:package": "tsup",
-		"build:site": "next build",
-		"dev": "next dev",
-		"format": "biome format . --write",
-		"lint": "biome check .",
-		"lint:fix": "biome check . --apply",
-		"prepublishOnly": "npm run build",
-		"release": "bumpp",
-		"typecheck": "tsc --noEmit"
+		"dev:docs": "pnpm -r --filter='./apps/docs' run dev",
+		"build:docs": "pnpm -r --filter='./apps/docs' run build",
+		"build:packages": "pnpm -r --filter='./packages/*' run build",
+		"release:packages": "pnpm -r --filter='./packages/*' run release"
 	},
 	"simple-git-hooks": {
 		"pre-commit": "npm run format && npm run lint:fix"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.4.1",
-		"@mantine/core": "^7.3.2",
-		"@mantine/hooks": "^7.3.2",
-		"@mantinex/shiki": "^1.0.3",
-		"@mdx-js/loader": "^3.0.0",
-		"@mdx-js/react": "^3.0.0",
-		"@next/mdx": "^14.0.4",
-		"@tabler/icons-react": "^2.44.0",
-		"@types/mdx": "^2.0.10",
-		"@types/node": "20.10.5",
-		"@types/react": "18.2.45",
-		"autoprefixer": "^10.4.16",
-		"clsx": "^2.0.0",
-		"next": "^14.0.4",
-		"postcss": "^8.4.32",
-		"postcss-import": "^15.1.0",
-		"postcss-preset-mantine": "^1.12.2",
-		"postcss-simple-vars": "^7.0.1",
-		"shikiji": "^0.9.11",
-		"simple-git-hooks": "^2.9.0",
-		"tailwindcss": "^3.4.0",
+		"@types/node": "^20.10.5",
+		"@types/react": "^18.2.45",
 		"tsup": "^8.0.1",
-		"typescript": "5.3.3"
+		"typescript": "^5.3.3"
 	},
-	"peerDependencies": {
-		"@mantine/core": ">=7.0.0"
-	},
-	"peerDependenciesMeta": {
-		"@mantine/core": {
-			"optional": true
-		}
-	},
-	"packageManager": "pnpm@8.12.1",
-	"engines": {
-		"node": ">=16.6.0"
-	}
+	"packageManager": "pnpm@8.12.1"
 }

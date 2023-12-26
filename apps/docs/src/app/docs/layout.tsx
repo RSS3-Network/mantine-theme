@@ -1,5 +1,5 @@
-import { TableOfContents } from '@/components/table-of-content'
 import { AppShellAside, TypographyStylesProvider } from '@mantine/core'
+import { TableOfContents } from '../../components/table-of-content'
 
 export default function Layout({
 	children,
