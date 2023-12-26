@@ -15,6 +15,7 @@ const nextConfig = {
 	experimental: {
 		// mdxRs: true,
 	},
+	transpilePackages: ['@rss3/mantine-theme'],
 }
 
 export default withMDX(nextConfig)
