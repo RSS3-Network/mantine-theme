@@ -25,7 +25,7 @@ jobs:
         run: pnpm i --frozen-lockfile
 
       - name: Build & Publish
-        run: pnpm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
