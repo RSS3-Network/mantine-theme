@@ -5,6 +5,8 @@ import classes from './index.module.css'
 
 interface PreProps {
 	children?: React.ReactNode
+	highlightLines?: string
+	filename?: string
 }
 
 function getLanguage(children: any) {
