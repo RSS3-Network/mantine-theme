@@ -136,12 +136,12 @@ const preset: Config = {
 	theme: {
 		extend: {
 			screens: {
-				xs: 'var(--mantine-breakpoint-xs)',
-				sm: 'var(--mantine-breakpoint-sm)',
-				md: 'var(--mantine-breakpoint-md)',
-				lg: 'var(--mantine-breakpoint-lg)',
-				xl: 'var(--mantine-breakpoint-xl)',
-				'2xl': 'var(--mantine-breakpoint-2xl)',
+				xs: '36em',
+				sm: '40em',
+				md: '48em',
+				lg: '64em',
+				xl: '80em',
+				'2xl': '96em',
 			},
 			fontFamily: {
 				DEFAULT: ['var(--mantine-font-family)'],
