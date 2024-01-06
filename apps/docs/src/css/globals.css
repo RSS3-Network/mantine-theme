@@ -14,7 +14,7 @@ ol, ul, menu {
 }
 
 .mantine-NavLink-root {
-  color: inherit;
+  color: var(--_nav-link-color);
   &:hover {
     text-decoration: none;
   }
