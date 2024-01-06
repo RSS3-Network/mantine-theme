@@ -3,7 +3,7 @@ import { MdxPre } from './components/mdx-pre'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
-		pre: MdxPre,
+		pre: (props) => <MdxPre {...props} />,
 		h1: (props) => (
 			<h1
 				data-order="1"

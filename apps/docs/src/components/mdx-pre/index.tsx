@@ -1,5 +1,4 @@
 import cx from 'clsx'
-import React from 'react'
 import { CodeHighlight, CodeHighlightProps } from '../shiki/code-highlight'
 import classes from './index.module.css'
 
